@@ -8,7 +8,6 @@ from exceptions import (
     BorrowLimitExceededError,
 )
 
-
 class Transaction:
     """A simple record of one borrow/return event."""
 
