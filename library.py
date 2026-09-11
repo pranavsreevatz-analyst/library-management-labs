@@ -6,6 +6,7 @@ from exceptions import (
     ItemNotAvailableError,
     MemberNotFoundError,
     BorrowLimitExceededError,
+    InvalidReturnError,
 )
 
 class Transaction:
@@ -77,15 +78,34 @@ class Library:
         item = self._get_item(item_id)
         member = self._get_member(member_id)
 
-        item.mark_returned()
-        member.return_item(item_id)
+        matching_transaction = None
 
+        # Find an open loan for this item and member.
         for txn in reversed(self._transactions):
-            if txn.item_id == item_id and txn.member_id == member_id and txn.return_date is None:
-                txn.return_date = date.today()
-                return txn
+            if (
+                txn.item_id == item_id
+                and txn.member_id == member_id
+                and txn.return_date is None
+            ):
+                matching_transaction = txn
+                break
 
-        raise LookupError("No open transaction found for this item/member pair.")
+        # Validate before changing any state.
+        if (
+            matching_transaction is None
+            or item_id not in member.borrowed_items
+            or item.is_available
+        ):
+            raise InvalidReturnError(
+                "No valid open loan exists for this item and member."
+            )
+
+        # Update the member, item, and transaction.
+        member.return_item(item_id)
+        item.mark_returned()
+        matching_transaction.return_date = date.today()
+
+        return matching_transaction 
 
     # ---------------- Queries / reporting ----------------
     def list_all_items(self):

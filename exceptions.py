@@ -22,3 +22,8 @@ class MemberNotFoundError(LibraryError):
 class BorrowLimitExceededError(LibraryError):
     """Raised when a member tries to borrow more items than allowed."""
     pass
+
+
+class InvalidReturnError(LibraryError):
+    """Raised when an item cannot be returned by this member."""
+    pass
