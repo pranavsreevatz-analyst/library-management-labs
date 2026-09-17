@@ -1,0 +1,56 @@
+[
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.0,
+    "trial": 1,
+    "seconds": 19.91,
+    "input_tokens": 23,
+    "output_tokens": 71,
+    "answer": "A physical library book can only be in one person's possession at a time, making a simultaneous second checkout physically impossible. Allowing the transaction would corrupt the library's system records by incorrectly assigning responsibility for a single item to multiple patrons. Failing the request maintains data integrity and ensures the second patron is properly directed to place a hold on the item instead."
+  },
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.0,
+    "trial": 2,
+    "seconds": 6.58,
+    "input_tokens": 23,
+    "output_tokens": 70,
+    "answer": "A physical library book can only be in one person's possession at a time, making a duplicate checkout physically impossible. Attempting to borrow it again would corrupt the system's records, creating conflicting data about who is responsible for the item. Failing the transaction maintains accurate inventory tracking and ensures fair access by requiring subsequent patrons to place a hold instead."
+  },
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.0,
+    "trial": 3,
+    "seconds": 5.75,
+    "input_tokens": 23,
+    "output_tokens": 72,
+    "answer": "A physical book can only be in one person's possession at a time, making it physically unavailable to anyone else until it is returned. Attempting to borrow it again would create conflicting records in the library's management system and disrupt accurate inventory tracking. Therefore, the system must reject the request to maintain data integrity and prevent confusion over the item's availability."
+  },
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.8,
+    "trial": 1,
+    "seconds": 5.15,
+    "input_tokens": 23,
+    "output_tokens": 57,
+    "answer": "Borrowing an already borrowed book must fail because a single physical item cannot exist in two places at once. In a management system, allowing a second checkout creates data inconsistencies that disrupt accountability and due-date tracking. Preventing this ensures accurate inventory management and maintains a fair queue for other patrons."
+  },
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.8,
+    "trial": 2,
+    "seconds": 8.26,
+    "input_tokens": 23,
+    "output_tokens": 73,
+    "answer": "Borrowing an already checked-out book must fail because a single physical item cannot be in two places at once. Allowing another checkout would corrupt the library's tracking system, making it impossible to determine who is currently responsible for the book or when it is due. Halting the transaction protects system integrity and ensures fair access for all patrons through an established holds process."
+  },
+  {
+    "model": "gemini-3.6-flash",
+    "temperature": 0.8,
+    "trial": 3,
+    "seconds": 7.51,
+    "input_tokens": 23,
+    "output_tokens": 70,
+    "answer": "A physical library book can only be in one person's possession at a time, making it impossible to distribute to multiple people simultaneously. From a system perspective, allowing an already borrowed book to be checked out again creates a logical error that corrupts inventory tracking and accountability. Blocking the transaction ensures data integrity and accurately maintains who is responsible for the book."
+  }
+]
